@@ -2,6 +2,16 @@
 
 Chart Music Visualizer adalah ekstensi Google Chrome (Manifest V3) yang dirancang untuk mengubah grafik kurs mata uang statis pada hasil pencarian Google menjadi visualizer musik interaktif yang responsif terhadap audio. Ekstensi ini memberikan pengalaman visual yang memadukan data finansial dengan ritme musik secara real-time.
 
+## Demo
+
+Berikut adalah tangkapan layar jendela ekstensi dan rekaman layar penggunaannya:
+
+### Tangkapan Layar Jendela Ekstensi
+![Tangkapan Layar Jendela Ekstensi](media/ss1.png)
+
+### Rekaman Layar Ekstensi
+![Rekaman Layar Ekstensi](media/rec1.mp4)
+
 ## Penjelasan
 
 Ekstensi ini bekerja dengan menyisipkan pemutar audio dan mesin visualisasi berbasis web langsung ke dalam elemen grafik kurs mata uang di Google Search. Ketika pengguna mencari konversi mata uang (seperti USD ke IDR atau EUR ke USD), halaman Google menampilkan grafik fluktuasi nilai tukar. Ekstensi ini mendeteksi grafik tersebut, menempatkan tombol pemutar musik di atasnya, dan menyembunyikan grafik asli untuk digantikan oleh kanvas visualisasi interaktif saat musik diputar.
