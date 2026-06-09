@@ -1,0 +1,246 @@
+/* ============================================================
+   Chart Music Visualizer - Injected Styles
+   Designed to blend seamlessly with Google's dark theme
+   ============================================================ */
+
+/* --- Hidden Trigger Button --- */
+.cv-trigger {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+  color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Show trigger on hover over the chart container */
+.cv-chart-container:hover .cv-trigger,
+.cv-trigger:hover {
+  opacity: 1;
+}
+
+.cv-trigger:hover {
+  background: rgba(129, 201, 149, 0.15);
+  border-color: rgba(129, 201, 149, 0.3);
+  color: #81c995;
+  transform: scale(1.1);
+}
+
+.cv-trigger:active {
+  transform: scale(0.95);
+}
+
+.cv-trigger.cv-active {
+  opacity: 1;
+  background: rgba(129, 201, 149, 0.2);
+  border-color: rgba(129, 201, 149, 0.4);
+  color: #81c995;
+  animation: cv-pulse 2s ease-in-out infinite;
+}
+
+.cv-trigger svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+/* --- Pulse Animation --- */
+@keyframes cv-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(129, 201, 149, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(129, 201, 149, 0);
+  }
+}
+
+/* --- Hidden File Input --- */
+.cv-file-input {
+  display: none !important;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* --- Canvas Wrapper --- */
+.cv-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: cv-fadeIn 0.5s ease-out;
+}
+
+.cv-canvas {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.cv-canvas:hover {
+  box-shadow: 0 0 20px rgba(129, 201, 149, 0.08);
+}
+
+/* --- Mode Indicator --- */
+.cv-mode-indicator {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.cv-mode-indicator.cv-mode-flash {
+  color: rgba(129, 201, 149, 0.7);
+  animation: cv-modePop 0.6s ease-out;
+}
+
+@keyframes cv-modePop {
+  0% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Drop Zone Overlay --- */
+.cv-drop-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(32, 33, 36, 0.92);
+  border: 2px dashed rgba(129, 201, 149, 0.4);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.cv-drop-overlay.cv-drop-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cv-drop-overlay svg {
+  width: 36px;
+  height: 36px;
+  fill: #81c995;
+  margin-bottom: 8px;
+  animation: cv-float 2s ease-in-out infinite;
+}
+
+.cv-drop-overlay span {
+  font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.3px;
+}
+
+@keyframes cv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* --- Song Info --- */
+.cv-song-info {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* --- Fade In Animation --- */
+@keyframes cv-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Tooltip --- */
+.cv-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  background: #3c4043;
+  color: #e8eaed;
+  font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 110;
+}
+
+.cv-trigger:hover .cv-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Progress Bar (minimal, at bottom of canvas) --- */
+.cv-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cv-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: rgba(129, 201, 149, 0.5);
+  transition: width 0.3s linear;
+}

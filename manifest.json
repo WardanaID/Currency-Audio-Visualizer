@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Chart Music Visualizer",
+  "version": "1.0.0",
+  "description": "Transform Google currency charts into interactive music visualizers",
+  "permissions": ["activeTab", "storage", "unlimitedStorage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/search*",
+        "*://*.google.co.id/search*",
+        "*://*.google.co.uk/search*",
+        "*://*.google.co.in/search*",
+        "*://*.google.com.au/search*",
+        "*://*.google.ca/search*",
+        "*://*.google.de/search*",
+        "*://*.google.fr/search*",
+        "*://*.google.co.jp/search*",
+        "*://*.google.com.br/search*",
+        "*://*.google.es/search*",
+        "*://*.google.it/search*",
+        "*://*.google.com.sg/search*",
+        "*://*.google.com.my/search*"
+      ],
+      "js": ["visualizer.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
